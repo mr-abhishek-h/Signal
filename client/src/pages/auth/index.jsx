@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useForm } from "react-hook-form"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { AuthForm } from "./AuthForm"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -46,13 +46,20 @@ export default function Auth() {
   }
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-slate-100 via-white to-slate-200 dark:from-slate-900 dark:to-slate-800">
-      <Card className="md:w-1/3 lg:w-1/4 xl:w-1/5 w-[90%] shadow-xl border-none rounded-2xl backdrop-blur-sm bg-white/70 dark:bg-slate-800/60">
+    <div
+      className="min-h-screen w-full flex items-center justify-center bg-cover bg-center"
+      style={{
+        backgroundImage:
+          "url(https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80)",
+      }}
+    >
+      <div className="absolute inset-0 bg-black/50" />
+      <Card className="md:w-1/3 lg:w-1/4 xl:w-1/5 w-[90%] shadow-xl border-none rounded-2xl backdrop-blur-sm bg-white/10 dark:bg-slate-800/20 z-10">
         <CardHeader className="text-center">
-          <CardTitle className="text-2xl font-semibold text-slate-800 dark:text-slate-100">
+          <CardTitle className="text-2xl font-semibold text-white">
             {isLogin ? "Welcome Back 👋" : "Create Account ✨"}
           </CardTitle>
-          <p className="text-sm text-slate-500 mt-1">
+          <p className="text-sm text-slate-300 mt-1">
             {isLogin
               ? "Log in to continue to your dashboard."
               : "Sign up to get started with your journey."}
@@ -64,10 +71,11 @@ export default function Auth() {
             isLogin={isLogin}
             onSubmit={handleSubmit(onSubmit)}
             register={register}
+            errors={errors}
           />
 
           <motion.div
-            className="text-center mt-6 text-sm text-slate-500"
+            className="text-center mt-6 text-sm text-slate-300"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
@@ -78,7 +86,7 @@ export default function Auth() {
                 <button
                   type="button"
                   onClick={() => setIsLogin(false)}
-                  className="text-slate-800 dark:text-slate-300 font-medium hover:underline"
+                  className="text-white font-medium hover:underline"
                 >
                   Sign up
                 </button>
@@ -89,7 +97,7 @@ export default function Auth() {
                 <button
                   type="button"
                   onClick={() => setIsLogin(true)}
-                  className="text-slate-800 dark:text-slate-300 font-medium hover:underline"
+                  className="text-white font-medium hover:underline"
                 >
                   Log in
                 </button>
@@ -101,4 +109,3 @@ export default function Auth() {
     </div>
   )
 }
-
