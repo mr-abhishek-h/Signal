@@ -1,3 +1,78 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    /* Discord Dark Theme Colors */
+    --background: 220 13% 18%; /* #2C2F33 */
+    --foreground: 210 11% 96%; /* #DCDDDE */
+    
+    --card: 220 13% 18%;
+    --card-foreground: 210 11% 96%;
+    
+    --popover: 220 13% 18%;
+    --popover-foreground: 210 11% 96%;
+    
+    --primary: 235 86% 65%; /* #5865F2 - Discord Blurple */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 215 13% 25%; /* #40444B */
+    --secondary-foreground: 210 11% 96%;
+    
+    --muted: 215 13% 25%;
+    --muted-foreground: 215 8% 60%; /* #99AAB5 */
+    
+    --accent: 215 13% 25%;
+    --accent-foreground: 210 11% 96%;
+    
+    --destructive: 359 82% 59%; /* #ED4245 */
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 216 13% 20%; /* #36393F */
+    --input: 216 13% 20%;
+    --ring: 235 86% 65%;
+    
+    /* Discord Specific Colors */
+    --discord-dark: 220 13% 13%; /* #23272A */
+    --discord-darker: 216 13% 11%; /* #1E2124 */
+    --discord-gray: 216 13% 20%; /* #36393F */
+    --discord-light-gray: 215 13% 25%; /* #40444B */
+    --discord-text: 210 11% 96%; /* #DCDDDE */
+    --discord-text-muted: 215 8% 60%; /* #99AAB5 */
+    --discord-blurple: 235 86% 65%; /* #5865F2 */
+    --discord-green: 139 47% 43%; /* #3BA55D */
+    --discord-red: 359 82% 59%; /* #ED4245 */
+    --discord-yellow: 38 95% 54%; /* #FAA81A */
+  }
+}
+
+@layer base {
+   * {
+     @apply border-[hsl(var(--border))];
+  }
+  
+  body {
+    @apply bg-[hsl(var(--discord-dark))] text-[hsl(var(--discord-text))];
+    font-family: 'Whitney', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--discord-darker));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--discord-gray));
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--discord-light-gray));
+  }
+}

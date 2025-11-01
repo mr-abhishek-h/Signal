@@ -46,23 +46,16 @@ export default function Auth() {
   }
 
   return (
-    <div
-      className="min-h-screen w-full flex items-center justify-center bg-cover bg-center"
-      style={{
-        backgroundImage:
-          "url(https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80)",
-      }}
-    >
-      <div className="absolute inset-0 bg-black/50" />
-      <Card className="md:w-1/3 lg:w-1/4 xl:w-1/5 w-[90%] shadow-xl border-none rounded-2xl backdrop-blur-sm bg-white/10 dark:bg-slate-800/20 z-10">
-        <CardHeader className="text-center">
-          <CardTitle className="text-2xl font-semibold text-white">
-            {isLogin ? "Welcome Back 👋" : "Create Account ✨"}
+    <div className="min-h-screen w-full flex items-center justify-center bg-[hsl(var(--discord-dark))]">
+      <Card className="md:w-[480px] w-[90%] max-w-[480px] shadow-2xl border-none rounded-lg bg-[hsl(var(--discord-gray))]">
+        <CardHeader className="text-center space-y-2">
+          <CardTitle className="text-2xl font-bold text-[hsl(var(--discord-text))]">
+            {isLogin ? "Welcome back!" : "Create an account"}
           </CardTitle>
-          <p className="text-sm text-slate-300 mt-1">
+          <p className="text-sm text-[hsl(var(--discord-text-muted))]">
             {isLogin
-              ? "Log in to continue to your dashboard."
-              : "Sign up to get started with your journey."}
+              ? "We're so excited to see you again!"
+              : "We're excited to have you join us!"}
           </p>
         </CardHeader>
 
@@ -75,33 +68,32 @@ export default function Auth() {
           />
 
           <motion.div
-            className="text-center mt-6 text-sm text-slate-300"
+            className="text-sm text-[hsl(var(--discord-text-muted))] mt-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.2 }}
           >
             {isLogin ? (
-              <>
-                Don't have an account?{" "}
+              <div className="flex items-center gap-1">
+                <span>Need an account?</span>
                 <button
                   type="button"
                   onClick={() => setIsLogin(false)}
-                  className="text-white font-medium hover:underline"
+                  className="text-[hsl(var(--discord-blurple))] hover:underline font-normal"
                 >
-                  Sign up
+                  Register
                 </button>
-              </>
+              </div>
             ) : (
-              <>
-                Already have an account?{" "}
+              <div className="flex items-center gap-1">
                 <button
                   type="button"
                   onClick={() => setIsLogin(true)}
-                  className="text-white font-medium hover:underline"
+                  className="text-[hsl(var(--discord-blurple))] hover:underline font-normal"
                 >
-                  Log in
+                  Already have an account?
                 </button>
-              </>
+              </div>
             )}
           </motion.div>
         </CardContent>
